@@ -1,5 +1,6 @@
 from vendors.faker import Faker
 from lib.models import Player
+import random
 
 
 class RandomFiller(object):
@@ -11,4 +12,6 @@ class RandomFiller(object):
     def get_player(self):
         pl = Player()
         pl.name = self.faker.name()
+        pl.surname = self.faker.surname()
+        #pl.role =
         return pl
