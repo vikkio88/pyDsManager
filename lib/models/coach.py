@@ -1,8 +1,8 @@
 from lib.models import Person
 
 
-class Player(Person):
-    role = ""
+class Coach(Person):
+    module = ""
 
     def __init__(self, person=Person()):
         self.name = person.name
