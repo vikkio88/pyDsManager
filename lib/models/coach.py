@@ -8,3 +8,4 @@ class Coach(Person):
         self.name = person.name
         self.surname = person.surname
         self.skill = person.skill
+
