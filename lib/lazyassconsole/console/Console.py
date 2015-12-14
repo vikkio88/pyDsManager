@@ -26,8 +26,8 @@ class Console:
 
     @staticmethod
     def format_colour(message, colour='GREEN'):
-        return "{}{}{}".format(Co.GREEN, message, Su.ENDC)
+        return "{}{}{}".format(Co.from_string(colour), message, Su.ENDC)
 
     @staticmethod
-    def print(message):
-        print(Console.format_colour(message))
+    def print(message, colour=None):
+        print(Console.format_colour(message, colour))
