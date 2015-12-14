@@ -3,7 +3,13 @@ from lib.lazyassconsole import Console
 
 if __name__ == '__main__':
     print("ciao")
-    Console.print("ciao", 1)
+    Console.print_red("ciao")
+    Console.print_blue("ciao")
+    Console.print_pink("ciao")
+    rnd = RandomFiller()
+    pl = rnd.get_coach()
+    Console.print(pl)
+
     """
     print("Here you go some coaches")
     for _ in range(20):
