@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(
         name='pyDsManager',
@@ -8,11 +8,5 @@ setup(
         license='MIT',
         author='vikkio88',
         author_email='vincenzo.ciaccio@gmail.com',
-        description='',
-        install_requires=[
-                "faker==0.5"
-        ],
-        dependency_links=[
-            "git+ssh://git@github.com/joke2k/faker.git@0.5#egg=faker-0.5"
-        ]
+        description=''
 )
