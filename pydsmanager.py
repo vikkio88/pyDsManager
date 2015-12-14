@@ -1,6 +1,10 @@
 from lib.generator import RandomFiller
+from lib.lazyassconsole import Console
 
 if __name__ == '__main__':
+    print("ciao")
+    Console.print("ciao", 1)
+    """
     print("Here you go some coaches")
     for _ in range(20):
         rnd = RandomFiller()
@@ -10,4 +14,5 @@ if __name__ == '__main__':
     for _ in range(20):
         rnd = RandomFiller()
         pl = rnd.get_player()
-        print(pl)
+        Console.print(pl.__str__(), 1)
+    """
