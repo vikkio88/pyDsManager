@@ -1,4 +1,4 @@
-from vendors.faker import Faker
+from faker import Faker
 
 if __name__ == '__main__':
     print("Here you go")

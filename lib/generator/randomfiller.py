@@ -1,4 +1,4 @@
-from vendors.faker import Faker
+from faker import Faker
 from lib.models import Player
 import random
 
