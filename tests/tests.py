@@ -10,6 +10,7 @@ class TestGameModels(unittest.TestCase):
         pl = self.randomFiller.get_player()
         self.assertIsInstance(pl, Player)
         self.assertIsNotNone(pl.name)
+        self.assertIsNotNone(pl.role)
 
 
 if __name__ == '__main__':

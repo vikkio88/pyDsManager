@@ -7,9 +7,10 @@ if __name__ == '__main__':
     Console.print_blue("ciao")
     Console.print_pink("ciao")
     rnd = RandomFiller()
-    pl = rnd.get_coach()
+    pl = rnd.get_player()
     Console.print(pl, 'r', 'b')
     Console.print(pl, style='u')
+    Console.print(pl.role, 'p')
 
     """
     print("Here you go some coaches")

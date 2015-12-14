@@ -1,4 +1,5 @@
 from faker import Factory
+from lib.config.roles import roles
 import random
 
 
@@ -26,3 +27,6 @@ class SuperFaker(object):
 
     def age(self, mn=16, mx=38):
         return random.randint(mn, mx)
+
+    def player_role(self):
+        return random.choice(roles)['name']

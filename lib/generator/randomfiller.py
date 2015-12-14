@@ -20,6 +20,7 @@ class RandomFiller(object):
 
     def get_player(self):
         pl = Player(self.get_person())
+        pl.role = self.faker.player_role()
         pl.age = self.faker.age()
         return pl
 
