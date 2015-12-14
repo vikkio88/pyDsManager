@@ -8,7 +8,8 @@ if __name__ == '__main__':
     Console.print_pink("ciao")
     rnd = RandomFiller()
     pl = rnd.get_coach()
-    Console.print(pl, 'r')
+    Console.print(pl, 'r', 'b')
+    Console.print(pl, style='u')
 
     """
     print("Here you go some coaches")
