@@ -1,6 +1,7 @@
 class Person(object):
     name = ""
     surname = ""
+    nationality = ""
     age = 0
     skill = 0
 

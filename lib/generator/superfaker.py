@@ -12,15 +12,7 @@ class SuperFaker(object):
         self.locale = locale
 
     def name(self):
-        name = self.faker.name_male().split()
-
-        if len(name) == 3:
-            name = name[1]
-        else:
-            name = name[0]
-        if self.locale == 'it_IT' and name[-1] == 'a':
-            name = name[:-1] + 'o'
-        return name
+        return self.faker.name()
 
     def surname(self):
         return self.faker.last_name()
@@ -30,3 +22,6 @@ class SuperFaker(object):
 
     def player_role(self):
         return random.choice(roles)['name']
+
+    def team_name(self):
+        return self.faker.city()
