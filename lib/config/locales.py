@@ -3,7 +3,7 @@ locales = [
     {'id': 'it', 'description': 'Italian', 'locale': 'it_IT'},
     {'id': 'us', 'description': 'American', 'locale': 'en_US'},
     {'id': 'fr', 'description': 'French', 'locale': 'fr_FR'},
-    {'id': 'da', 'description': 'Danish', 'locale': 'da_DK'},
+    {'id': 'dk', 'description': 'Danish', 'locale': 'dk_DK'},
     {'id': 'no', 'description': 'Norwegian', 'locale': 'no_NO'},
     {'id': 'pl', 'description': 'Polish', 'locale': 'pl_PL'},
     {'id': 'de', 'description': 'German', 'locale': 'de_DE'},
@@ -15,5 +15,5 @@ locales = [
     {'id': 'br', 'description': 'Brazilian', 'locale': 'pt_BR'},
     {'id': 'pt', 'description': 'Portugal', 'locale': 'pt_PL'},
     {'id': 'cz', 'description': 'Czech', 'locale': 'cs_CZ'},
-    {'id': 'bg', 'description': 'Bulgarian', 'locale': 'bg_BG'}
+    {'id': 'at', 'description': 'Austrian', 'locale': 'de_AT'}
 ]

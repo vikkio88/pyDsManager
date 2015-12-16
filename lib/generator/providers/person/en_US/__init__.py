@@ -1,5 +1,3 @@
-from ..en import Provider as PersonProvider
+from ..en_GB import *
 
 
-class Provider(PersonProvider):
-    pass
