@@ -36,7 +36,7 @@ class Team(object):
     def get_players_per_role(self):
         result = {}
         for player in self.players:
-            if result.get(player.role, False):
+            if player.role in result:
                 result[player.role] += 1
             else:
                 result[player.role] = 1

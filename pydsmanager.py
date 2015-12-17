@@ -29,7 +29,8 @@ def main():
                 print("defensive")
             else:
                 print("offensive")
-
+            print(team.get_players_per_role())
+            print(m.get_roles_needed())
         if command == '2':
             player = rnd.get_player(rnd.get_locale())
             print(player, player.nationality, player.role)
