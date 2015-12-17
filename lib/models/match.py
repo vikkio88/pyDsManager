@@ -1,6 +1,7 @@
 import random
-from lib.generator import Randomizer
-from . import Module
+from lib.generator.randomizer import Randomizer
+from .module import Module
+from .matchresult import MatchResult
 
 
 class Match(object):
@@ -37,6 +38,34 @@ class Match(object):
 
         goal_home += self.bonus_age(self.homeTeam)
         goal_away += self.bonus_age(self.awayTeam)
+
+        goal_away -= self.bonus_goalkeeper(self.homeTeam)
+        goal_home -= self.bonus_goalkeeper(self.awayTeam)
+
+        if Module(self.homeTeam.coach.module).is_offensive():
+            goal_home += random.randint(1, 2) if Randomizer.bool_on_percentage(50) else 0
+            goal_away += 1 if Randomizer.bool_on_percentage(20) else 0
+        if Module(self.awayTeam.coach.module).is_offensive():
+            goal_away += random.randint(1, 2) if Randomizer.bool_on_percentage(50) else 0
+            goal_home += 1 if Randomizer.bool_on_percentage(20) else 0
+        if Module(self.homeTeam.coach.module).is_defensive():
+            goal_away -= 1 if Randomizer.bool_on_percentage(30) else 0
+        if Module(self.awayTeam.coach.module).is_defensive():
+            goal_home -= 1 if Randomizer.bool_on_percentage(30) else 0
+
+        goal_home = int(goal_home)
+        goal_away = int(goal_away)
+        goal_home = goal_home if goal_home > 0 else 0
+        goal_away = goal_away if goal_away > 0 else 0
+
+        return MatchResult(goal_home, goal_away, self.homeTeam, self.awayTeam)
+
+    def bonus_goalkeeper(self, team):
+        goalie = team.get_best_player_by_role('GK')
+        if goalie is not None:
+            return 1 if Randomizer.bool_on_percentage(goalie.skill) else 0
+        else:
+            return 1 if Randomizer.bool_on_percentage(1) else 0
 
     def bonus_age(self, team):
         if team.get_avg_age() > 29 or team.get_avg_age() < 24:

@@ -3,3 +3,4 @@ from lib.models.player import Player
 from lib.models.coach import Coach
 from lib.models.team import Team
 from lib.models.module import Module
+from lib.models.match import Match

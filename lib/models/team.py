@@ -1,3 +1,6 @@
+from operator import attrgetter
+
+
 class Team(object):
     name = ""
     nationality = ""
@@ -15,7 +18,7 @@ class Team(object):
             tot = 0
             for player in self.players:
                 tot += player.age
-            self.avg_age = tot / len(self.players)
+            self.avg_age = round(tot / len(self.players), 2)
         return self.avg_age
 
     def get_avg_skill(self):
@@ -23,7 +26,7 @@ class Team(object):
             tot = 0
             for player in self.players:
                 tot += player.skill
-            self.avg_skill = tot / len(self.players)
+            self.avg_skill = round(tot / len(self.players), 2)
         return self.avg_skill
 
     def get_players_with_role(self, role):
@@ -41,3 +44,11 @@ class Team(object):
             else:
                 result[player.role] = 1
         return result
+
+    def get_players_by_role(self, role):
+        return [p for p in self.players if p.role == role]
+
+    def get_best_player_by_role(self, role):
+        players_by_role = self.get_players_by_role(role)
+        # preferred this to the lambda version, apparently is faster
+        return max(players_by_role, key=attrgetter('skill')) if len(players_by_role) > 0 else None

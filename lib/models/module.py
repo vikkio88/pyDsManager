@@ -36,7 +36,7 @@ class Module:
     def is_applicable_to_list(self, player_list):
         needed = self.get_roles_needed()
         for role in needed:
-            if needed[role] > 0 and role not in player_list or needed[role] > player_list[role]:
+            if needed[role] > 0 and role not in player_list or needed[role] > player_list.get(role, 0):
                 return False
         return True
 
@@ -47,7 +47,7 @@ class Module:
         result = {}
         needed = self.get_roles_needed()
         for role in needed:
-            if needed[role] > 0 and role not in player_list or needed[role] > player_list[role]:
+            if needed[role] > 0 and role not in player_list or needed[role] > player_list.get(role, 0):
                 n = player_list.get(role, 0)
                 result[role] = needed[role] - n
         return result

@@ -1,13 +1,15 @@
-from lib.generator import RandomFiller
+from lib.generator.randomfiller import RandomFiller
 from lib.lazyassconsole import Console
 from lib.config.modules import modules
 from lib.config.locales import locales
 from lib.models import Module
+from lib.models import Match
 
 
 def print_menu():
     print('1 . Generate and print team')
     print('2 . Generate and print player')
+    print('3 . Generate two teams and simulate game')
     print('q. Quit')
 
 
@@ -38,9 +40,16 @@ def main():
                 print(m.roles_missing_team(team))
             else:
                 print("{} is applicable".format(m.name))
+            print(team.get_players_by_role('GK'))
+            print(team.get_best_player_by_role('GK'))
         if command == '2':
             player = rnd.get_player(rnd.get_locale())
             print(player, player.nationality, player.role)
+        if command == '3':
+            t1 = rnd.get_team()
+            t2 = rnd.get_team()
+            m = Match(t1, t2)
+            print(m.simulate())
 
 
 if __name__ == '__main__':
