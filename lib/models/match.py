@@ -41,6 +41,7 @@ class Match(object):
     def bonus_age(self, team):
         if team.get_avg_age() > 29 or team.get_avg_age() < 24:
             return self.chance()
+        return 0
 
     def malus_module(self, team):
         m = Module(team.coach.module)
