@@ -2,6 +2,7 @@ from lib.generator import RandomFiller
 from lib.lazyassconsole import Console
 from lib.config.modules import modules
 from lib.config.locales import locales
+from lib.models import Module
 
 
 def print_menu():
@@ -21,8 +22,14 @@ def main():
             print(team.name)
             print(team.nationality)
             print(team.coach, team.coach.module)
-            for player in team.players:
-                print(player, player.nationality, player.role)
+            m = Module(team.coach.module)
+            if m.is_balanced():
+                print("balanced")
+            elif m.is_defensive():
+                print("defensive")
+            else:
+                print("offensive")
+
         if command == '2':
             player = rnd.get_player(rnd.get_locale())
             print(player, player.nationality, player.role)
