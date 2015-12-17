@@ -3,7 +3,7 @@ locales = [
     {'id': 'it', 'description': 'Italian', 'locale': 'it_IT'},
     {'id': 'us', 'description': 'American', 'locale': 'en_US'},
     {'id': 'fr', 'description': 'French', 'locale': 'fr_FR'},
-    {'id': 'dk', 'description': 'Danish', 'locale': 'dk_DK'},
+    {'id': 'dk', 'description': 'Danish', 'locale': 'da_DK'},
     {'id': 'no', 'description': 'Norwegian', 'locale': 'no_NO'},
     {'id': 'pl', 'description': 'Polish', 'locale': 'pl_PL'},
     {'id': 'de', 'description': 'German', 'locale': 'de_DE'},
