@@ -10,8 +10,10 @@ import random
 class RandomFiller(object):
     faker = None
     locale = None
+    locales = None
 
     def __init__(self, locale='it_IT'):
+        self.locales = locales
         self.change_locale(locale)
 
     def get_person(self):
@@ -52,4 +54,4 @@ class RandomFiller(object):
             self.locale = locale
 
     def get_locale(self):
-        return random.choice(locales).get('locale', 'it_IT')
+        return self.locales[random.choice(list(self.locales.keys()))]['locale']
