@@ -11,7 +11,6 @@ locales = {
     'tr': {'description': 'Turkish', 'locale': 'tr_TR'},
     'nl': {'description': 'Dutch', 'locale': 'nl_NL'},
     'es': {'description': 'Spanish', 'locale': 'es_ES'},
-    'gk': {'description': 'Greek', 'locale': 'el_GR'},
     'br': {'description': 'Brazilian', 'locale': 'pt_BR'},
     'pt': {'description': 'Portugal', 'locale': 'pt_PT'},
     'cz': {'description': 'Czech', 'locale': 'cs_CZ'},

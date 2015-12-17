@@ -1,5 +1,6 @@
 from .providers import providers
 from lib.config.roles import roles
+from .providers.football import football
 import random
 
 
@@ -24,4 +25,4 @@ class SuperFaker(object):
         return random.choice(roles)['name']
 
     def team_name(self):
-        return random.choice(self.providers[self.locale]['cities'])
+        return random.choice(self.providers[self.locale]['cities']) + " " + random.choice(football['clubs'])

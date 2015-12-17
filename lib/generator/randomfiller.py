@@ -3,6 +3,7 @@ from lib.models import Player
 from lib.models import Coach
 from lib.models import Team
 from lib.config.locales import locales
+from lib.config.modules import modules
 from lib.generator.superfaker import SuperFaker
 import random
 
@@ -35,6 +36,7 @@ class RandomFiller(object):
         self.change_locale(locale)
         co = Coach(self.get_person())
         co.age = self.faker.age(38, 70)
+        co.module = self.get_module()
         co.nationality = self.locale
         return co
 
@@ -55,3 +57,6 @@ class RandomFiller(object):
 
     def get_locale(self):
         return self.locales[random.choice(list(self.locales.keys()))]['locale']
+
+    def get_module(self):
+        return random.choice(list(modules.keys()))
