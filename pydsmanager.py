@@ -6,7 +6,7 @@ from lib.config.locales import locales
 if __name__ == '__main__':
     for l in locales:
         print(l['locale'])
-"""
+
     for module in modules:
         Console.print(module['name'], 'r')
 
@@ -18,4 +18,3 @@ if __name__ == '__main__':
     print(team.nationality)
     for player in team.players:
         print(player)
-"""
