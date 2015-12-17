@@ -30,3 +30,14 @@ class Module:
                 self.roles_needed[role['name']] = self.configurations['roles'][i]
                 i += 1
         return self.roles_needed
+
+    def is_applicable_to_team(self, team):
+        self.is_applicable_to_list(team.get_players_per_role())
+
+    def is_applicable_to_list(self, player_list):
+        needed = self.get_roles_needed()
+        for role in self.get_roles_needed():
+            if role not in player_list or needed[role] <player_list[role]:
+                return False
+        return True
+
