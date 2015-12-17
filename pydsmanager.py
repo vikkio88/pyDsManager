@@ -29,8 +29,15 @@ def main():
                 print("defensive")
             else:
                 print("offensive")
+            print("Players per role")
             print(team.get_players_per_role())
+            print("Roles needed by {}".format(m.name))
             print(m.get_roles_needed())
+            if not m.is_applicable_to_team(team):
+                print("module not applicable, missing:")
+                print(m.roles_missing_team(team))
+            else:
+                print("{} is applicable".format(m.name))
         if command == '2':
             player = rnd.get_player(rnd.get_locale())
             print(player, player.nationality, player.role)
