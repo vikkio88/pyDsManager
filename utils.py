@@ -64,6 +64,7 @@ def show_teams():
             i += 1
         index = int(input())
         index -= 1
+
         if len(teams) > index > -1:
             team = teams[index]
             print("{}".format(team.name))
