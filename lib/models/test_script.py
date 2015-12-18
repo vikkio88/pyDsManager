@@ -45,15 +45,6 @@ def main():
         if command == '3':
             t1 = rnd.get_team()
             t2 = rnd.get_team()
-            for _ in range(15):
-                champ = rnd.get_player()
-                champ.skill = 100
-                t1.add_player(champ)
-            for _ in range(30):
-                cess = rnd.get_player()
-                cess.skill = 1
-                t2.add_player(cess)
-
             wa = 0
             wh = 0
             d = 0

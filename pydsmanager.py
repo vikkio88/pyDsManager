@@ -5,5 +5,19 @@ from lib.config.locales import locales
 from lib.models import Module
 from lib.models import Match
 
+from utils import *
+
+def main():
+    print_banner()
+
+    cmd = ''
+    while cmd != 'q':
+        print_menu()
+        cmd = input()
+        check_cmd(cmd)
+
+
+if __name__ == '__main__':
+    main()
 
 
