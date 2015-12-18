@@ -52,3 +52,8 @@ class Team(object):
         players_by_role = self.get_players_by_role(role)
         # preferred this to the lambda version, apparently is faster
         return max(players_by_role, key=attrgetter('skill')) if len(players_by_role) > 0 else None
+
+    def add_player(self, player):
+        self.players.append(player)
+        self.avg_skill = None
+        self.avg_age = None

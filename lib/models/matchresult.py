@@ -11,5 +11,4 @@ class MatchResult(object):
         self.awayTeam = team_away
 
     def __str__(self):
-        return "{} - {}  {}-{} ({} - {})".format(self.homeTeam.name, self.awayTeam.name, self.goalHome, self.goalAway,
-                                                 self.homeTeam.get_avg_skill(), self.awayTeam.get_avg_skill())
+        return "{} - {}  {}-{}".format(self.homeTeam.name, self.awayTeam.name, self.goalHome, self.goalAway)

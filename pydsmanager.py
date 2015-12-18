@@ -9,7 +9,7 @@ from lib.models import Match
 def print_menu():
     print('1 . Generate and print team')
     print('2 . Generate and print player')
-    print('3 . Generate two teams and simulate game')
+    print('3 . Generate two teams and simulate few games')
     print('q. Quit')
 
 
@@ -48,8 +48,32 @@ def main():
         if command == '3':
             t1 = rnd.get_team()
             t2 = rnd.get_team()
-            m = Match(t1, t2)
-            print(m.simulate())
+            for _ in range(15):
+                champ = rnd.get_player()
+                champ.skill = 100
+                t1.add_player(champ)
+            for _ in range(30):
+                cess = rnd.get_player()
+                cess.skill = 1
+                t2.add_player(cess)
+
+            wa = 0
+            wh = 0
+            d = 0
+            for i in range(100):
+                m = Match(t1, t2)
+                result = m.simulate()
+                print("{}.\t {}".format(str(i), result))
+                if result.goalHome > result.goalAway:
+                    wh += 1
+                elif result.goalAway > result.goalHome:
+                    wa += 1
+                else:
+                    d += 1
+            print("{} ({}) win percentage: {}%".format(t1.name, t1.get_avg_skill(), wh))
+            print("{} ({}) win percentage: {}%".format(t2.name, t2.get_avg_skill(), wa))
+            print("teams skill diff {}".format(round(abs(t1.get_avg_skill() - t2.get_avg_skill())), 2))
+            print("teams drawn {} times".format(d))
 
 
 if __name__ == '__main__':

@@ -22,19 +22,14 @@ class Match(object):
         goal_away = 0
         if Randomizer.bool_on_percentage(80):
             if home_point < away_point:
-                goal_away += (away_point - home_point) % 6
-                goal_home += self.chance()
-                goal_away += self.chance()
-                goal_home += self.bonus_home()
+                goal_away += ((away_point - home_point) % 6) + self.chance()
+                goal_home += self.chance() + self.bonus_home()
             else:
-                goal_home += (home_point - away_point) % 6
+                goal_home += ((home_point - away_point) % 6) + self.chance() + self.bonus_home()
                 goal_away += self.chance()
-                goal_home += self.chance()
-                goal_home += self.bonus_home()
         else:
-            goal_home += self.chance()
+            goal_home += self.chance() + self.bonus_home()
             goal_away += self.chance()
-            goal_home += self.bonus_home()
 
         goal_home += self.bonus_age(self.homeTeam)
         goal_away += self.bonus_age(self.awayTeam)
