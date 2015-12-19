@@ -40,12 +40,17 @@ def generate_player():
 
 
 def show_free_players():
-    for player in free_players:
-        print(player)
+    for i, player in enumerate(free_players):
+        print("{} . {}".format(i + 1, player))
 
 
 def add_player_to_team():
-    pass
+    show_free_players()
+    player = choose_one_from_list(free_players)
+    show_teams()
+    team = choose_one_from_list(teams)
+    team.add_player(player)
+    free_players.remove(player)
 
 
 def generate_team():
@@ -57,24 +62,30 @@ def generate_team():
 
 def show_teams():
     if len(teams) > 0:
-        print("Which team? 1/{}".format(len(teams)))
-        i = 1
-        for team in teams:
-            print("{}. {} ({})".format(i, team.name, team.nationality))
-            i += 1
-        index = int(input())
-        index -= 1
+        print("Team List:")
+        for i, team in enumerate(teams):
+            print("{}. {} ({})".format(i + 1, team.name, team.nationality))
+        team = choose_one_from_list(teams)
+        print("{}".format(team.name))
+        print("nation: {}".format(team.nationality))
+        print("coach {}".format(team.coach))
+        print("avgSkill: {}".format(team.get_avg_skill()))
+        print("avgAge: {}".format(team.get_avg_age()))
+        print("Players:")
+        for player in team.players:
+            print("{}".format(player))
 
-        if len(teams) > index > -1:
-            team = teams[index]
-            print("{}".format(team.name))
-            print("nation: {}".format(team.nationality))
-            print("coach {}".format(team.coach))
-            print("avgSkill: {}".format(team.get_avg_skill()))
-            print("avgAge: {}".format(team.get_avg_age()))
-            print("Players:")
-            for player in team.players:
-                print("{}".format(player))
+
+def choose_one_from_list(target_list):
+    index = input("({}/{}) > ".format(1, len(target_list)))
+    index = int(index)
+    index -= 1
+    while 0 < index or index >= len(target_list):
+        Console.print("wrong choice, try again", 'r')
+        index = input("({}/{}) > ".format(1, len(target_list)))
+        index = int(index)
+        index -= 1
+    return target_list[index]
 
 
 def generate_match():
