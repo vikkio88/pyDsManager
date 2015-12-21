@@ -49,11 +49,7 @@ def show_teams():
         for i, team in enumerate(teams):
             print("{}. {} ({})".format(i + 1, team.name, team.nationality))
         team = Utils.choose_one_from_list(teams)
-        print("{}".format(team.name))
-        print("nation: {}".format(team.nationality))
-        print("coach {}".format(team.coach))
-        print("avgSkill: {}".format(team.get_avg_skill()))
-        print("avgAge: {}".format(team.get_avg_age()))
+        print(team)
         print("Players:")
         for player in team.players:
             print("{}".format(player))

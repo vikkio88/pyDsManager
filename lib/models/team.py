@@ -13,6 +13,10 @@ class Team(object):
         self.coach = coach
         self.players = players
 
+    def __str__(self):
+        return "{} ({})\nskill: {}\nage: {}\ncoach: {}".format(self.name, self.nationality, self.get_avg_skill(),
+                                                               self.get_avg_age(), self.coach)
+
     def get_avg_age(self):
         if self.avg_age is None:
             tot = 0
