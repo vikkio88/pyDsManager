@@ -1,5 +1,6 @@
 from gameconfig import config
 from lib.lazyassconsole import Console
+from lib.lazyassconsole import Utils
 from lib.generator import RandomFiller
 from pydsmanager import teams, free_players, match_results
 
@@ -46,9 +47,9 @@ def show_free_players():
 
 def add_player_to_team():
     show_free_players()
-    player = choose_one_from_list(free_players)
+    player = Utils.choose_one_from_list(free_players)
     show_teams()
-    team = choose_one_from_list(teams)
+    team = Utils.choose_one_from_list(teams)
     team.add_player(player)
     free_players.remove(player)
 
@@ -65,7 +66,7 @@ def show_teams():
         print("Team List:")
         for i, team in enumerate(teams):
             print("{}. {} ({})".format(i + 1, team.name, team.nationality))
-        team = choose_one_from_list(teams)
+        team = Utils.choose_one_from_list(teams)
         print("{}".format(team.name))
         print("nation: {}".format(team.nationality))
         print("coach {}".format(team.coach))
@@ -74,18 +75,6 @@ def show_teams():
         print("Players:")
         for player in team.players:
             print("{}".format(player))
-
-
-def choose_one_from_list(target_list):
-    index = input("({}/{}) > ".format(1, len(target_list)))
-    index = int(index)
-    index -= 1
-    while index < 0 or index >= len(target_list):
-        Console.print("wrong choice, try again", 'r')
-        index = input("({}/{}) > ".format(1, len(target_list)))
-        index = int(index)
-        index -= 1
-    return target_list[index]
 
 
 def generate_match():
