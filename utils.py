@@ -1,5 +1,6 @@
 from gameconfig import config
 from lib.lazyassconsole import Utils
+from lib.lazyassconsole import Console
 from lib.generator import RandomFiller
 from pydsmanager import teams, free_players, match_results
 
@@ -16,17 +17,23 @@ def generate_player():
 
 
 def show_free_players():
-    for i, player in enumerate(free_players):
-        print("{} . {}".format(i + 1, player))
+    if len(free_players) > 0:
+        for i, player in enumerate(free_players):
+            print("{} . {}".format(i + 1, player))
+    else:
+        Console.print('No free players available', 'r')
 
 
 def add_player_to_team():
-    show_free_players()
-    player = Utils.choose_one_from_list(free_players)
-    show_teams()
-    team = Utils.choose_one_from_list(teams)
-    team.add_player(player)
-    free_players.remove(player)
+    if len(free_players) < 1 or len(teams) < 1:
+        Console.print("Not enough players or teams generated")
+    else:
+        show_free_players()
+        player = Utils.choose_one_from_list(free_players)
+        show_teams()
+        team = Utils.choose_one_from_list(teams)
+        team.add_player(player)
+        free_players.remove(player)
 
 
 def generate_team():
@@ -50,6 +57,8 @@ def show_teams():
         print("Players:")
         for player in team.players:
             print("{}".format(player))
+    else:
+        Console.print('No teams available', 'r')
 
 
 def generate_match():
