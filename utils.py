@@ -80,7 +80,7 @@ def choose_one_from_list(target_list):
     index = input("({}/{}) > ".format(1, len(target_list)))
     index = int(index)
     index -= 1
-    while 0 < index or index >= len(target_list):
+    while index < 0 or index >= len(target_list):
         Console.print("wrong choice, try again", 'r')
         index = input("({}/{}) > ".format(1, len(target_list)))
         index = int(index)
