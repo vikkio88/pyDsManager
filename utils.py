@@ -1,5 +1,4 @@
 from gameconfig import config
-from lib.lazyassconsole import Console
 from lib.lazyassconsole import Utils
 from lib.generator import RandomFiller
 from pydsmanager import teams, free_players, match_results
@@ -7,30 +6,6 @@ from pydsmanager import teams, free_players, match_results
 
 def print_banner():
     print(config['banner'])
-
-
-def print_menu():
-    for menu_entry in config['menu_choice']:
-        print("{} . {}".format(menu_entry, config['menu_choice'][menu_entry]))
-
-
-def check_cmd(cmd):
-    if cmd in config['menu_choice']:
-        print(config['menu_choice'][cmd])
-        if cmd == 'gp':
-            generate_player()
-        elif cmd == 'ap':
-            add_player_to_team()
-        elif cmd == 'gt':
-            generate_team()
-        elif cmd == 'gm':
-            generate_match()
-        elif cmd == 'sp':
-            show_free_players()
-        elif cmd == 'st':
-            show_teams()
-    else:
-        Console.print("Invalid Command {}".format(cmd), 'r')
 
 
 def generate_player():
